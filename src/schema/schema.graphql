@@ -1,0 +1,42 @@
+type Query {
+    "Student List"
+    Students: [Student!]!
+}
+
+"Student information"
+type Student{
+    id: ID!,
+    name: String!
+    email: String!
+    website: String
+    courses: [ Courses! ]! 
+}
+
+type Courses{
+    id: ID!
+    title: String
+    description: String
+    clases: Int!
+    time: Float!
+    logo: String!
+    level: Nivel!
+    path: String!
+    teacher: String!
+    students: [ Student ]
+    reviews: [ Ranking! ]!
+}
+
+enum Nivel {
+    TODOS
+    NOVATOS
+    INTERMEDIO
+    EXPERTO
+}
+
+type Ranking {
+    id: ID!
+    name: String!
+    point: Float!
+    comment: String!
+} 
+
